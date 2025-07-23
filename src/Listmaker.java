@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
+
+
 public class Listmaker {
     public static final Scanner in = new Scanner(System.in);
     public static ArrayList<String> myArrList = new ArrayList<>();
@@ -11,20 +13,26 @@ public class Listmaker {
         do {
             display();
             choice = SafeInput.getRegExString(in, "Choose A,D,I,P or Q", "[AaDdIiPpQq]");
-            if(choice.equalsIgnoreCase("A")){
-                add();
-            }else if(choice.equalsIgnoreCase("D")){
-                delete();
-            }else if(choice.equalsIgnoreCase("I")){
-                insert();
-            }else if(choice.equalsIgnoreCase("P")){
-                print();
-            }else{
-                done = quit();
+            switch (choice.toUpperCase()) {
+                case "A":
+                    add();
+                    break;
+                case "D":
+                    delete();
+                    break;
+                case "I":
+                    insert();
+                    break;
+                case "P":
+                    print();
+                    break;
+                case "Q":
+                    done = quit();
+                    break;
             }
-
-
         }while(!done);
+
+
 
 
     }
@@ -79,6 +87,8 @@ public class Listmaker {
         }
         return done;
     }
+
+
 
 
 }
